@@ -23,6 +23,7 @@ export const useWikiInfiniteScroll = (searchTerm: string) => {
       setPage(prevPage => prevPage + 1);
       if (nextProfileCards.length < pageSize) {
         setHasMore(false);
+        setPage(1);
       }
     } catch (error) {
       console.error('Failed to fetch profileCards', error);
@@ -33,7 +34,6 @@ export const useWikiInfiniteScroll = (searchTerm: string) => {
 
   //searchTerm에 값이 할당되어 있고 router가 준비되었을 때 리스트 초기화
   useEffect(() => {
-    setPage(1);
     if (searchTerm !== undefined && router.isReady) {
       setProfileCards([]);
       setHasMore(true);
@@ -43,18 +43,9 @@ export const useWikiInfiniteScroll = (searchTerm: string) => {
 
   //데이터 더 불러오기
   useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
     if (inView && hasMore && page > 1) {
-      setLoading(true);
-      timer = setTimeout(() => {
-        handleLoadProfileCards(page, 4, searchTerm);
-      }, 500);
+      handleLoadProfileCards(page, 4, searchTerm);
     }
-    return () => {
-      if (timer) {
-        clearTimeout(timer);
-      }
-    };
   }, [inView]);
 
   return {
