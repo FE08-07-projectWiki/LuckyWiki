@@ -12,7 +12,7 @@ import bellImg from '@/public/landing/landing-bell.png';
 import chatLightImg from '@/public/landing/landing-chat-light.png';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { Bounce, JackInTheBox, Slide, Fade, Flip, AttentionSeeker } from 'react-awesome-reveal';
+import { Bounce, Slide, Fade, Flip, AttentionSeeker } from 'react-awesome-reveal';
 import Footer from '@/components/@shared/footer/Footer';
 
 export default function Landing() {
@@ -22,23 +22,23 @@ export default function Landing() {
         <div className={styles.background}>
           <section className={classNames(styles.introSection, styles.common)}>
             <div className={styles.introParagraph}>
-              <Fade delay={300}>
+              <Fade delay={300} triggerOnce>
                 <p className={styles.introLightText}>친구들이 만드는</p>
               </Fade>
-              <Bounce delay={900}>
+              <Fade delay={900} triggerOnce>
                 <p className={styles.introBoldText}>
                   나만의 <span className={styles.cloverText}>위키</span>
                 </p>
-              </Bounce>
+              </Fade>
             </div>
-            <Fade delay={1500}>
+            <Fade delay={1500} triggerOnce>
               <Link href={'/home'} className={classNames(styles.landingLink, styles.dark)}>
                 위키 만들기
               </Link>
             </Fade>
-            <JackInTheBox className={styles.introImageWrapper} delay={1900}>
+            <Bounce className={styles.introImageWrapper} delay={1900} triggerOnce>
               <Image src={profileImg} alt={'프로필 소개 이미지'} height={590} width={498} />
-            </JackInTheBox>
+            </Bounce>
           </section>
         </div>
         <section className={classNames(styles.writeSection)}>
@@ -51,10 +51,10 @@ export default function Landing() {
                 </p>
                 <p className={styles.mainBoldText}>직접 작성해봐요</p>
               </div>
-              <Slide className={styles.keyboard}>
+              <Slide className={styles.keyboard} triggerOnce>
                 <Image src={keyboardImg} alt={'키보드 이미지'} height={450} width={364} />
               </Slide>
-              <Slide direction={'right'} className={styles.chat}>
+              <Slide direction={'right'} className={styles.chat} triggerOnce>
                 <Image src={chatDarkImg} alt={'어두운 배경 채팅 이미지'} height={681} width={520} />
               </Slide>
             </div>
@@ -71,16 +71,16 @@ export default function Landing() {
             </div>
           </Slide>
           <div className={styles.shareImageList}>
-            <Flip delay={300}>
+            <Flip delay={300} triggerOnce>
               <Image src={share1Img} alt={'어두운 배경 채팅 이미지'} height={360} width={360} />
             </Flip>
-            <Flip delay={400}>
+            <Flip delay={400} triggerOnce>
               <Image src={share2Img} alt={'어두운 배경 채팅 이미지'} height={360} width={360} />
             </Flip>
-            <Flip delay={500}>
+            <Flip delay={500} triggerOnce>
               <Image src={share3Img} alt={'어두운 배경 채팅 이미지'} height={360} width={360} />
             </Flip>
-            <Flip delay={600}>
+            <Flip delay={600} triggerOnce>
               <Image src={share4Img} alt={'어두운 배경 채팅 이미지'} height={360} width={360} />
             </Flip>
           </div>
@@ -101,7 +101,7 @@ export default function Landing() {
               height={280}
               width={924}
             />
-            <AttentionSeeker effect={'swing'} delay={400}>
+            <AttentionSeeker effect={'swing'} delay={400} triggerOnce>
               <Image className={styles.bell} src={bellImg} alt={'종 이미지'} height={280} width={280} />
             </AttentionSeeker>
             <Image
@@ -114,12 +114,12 @@ export default function Landing() {
           </div>
         </section>
         <section className={styles.startSection}>
-          <Fade>
+          <Fade triggerOnce>
             <p>
               나만의 <span className={styles.cloverText}>위키</span> 만들어보기
             </p>
           </Fade>
-          <AttentionSeeker effect={'bounce'} delay={400}>
+          <AttentionSeeker effect={'bounce'} delay={400} triggerOnce>
             <Link href={'/home'} className={classNames(styles.landingLink)}>
               지금 시작하기
             </Link>

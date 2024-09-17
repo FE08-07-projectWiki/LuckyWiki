@@ -79,18 +79,18 @@ export default function Home({ profileList }: HomeProps) {
     <>
       <div className={styles.homeContainer}>
         <section className={styles.paragraph}>
-          <Fade>
+          <Fade triggerOnce>
             <h1 className={styles.textXl}>
               친구들이
               <br />내 위키를 만들어준다니,
             </h1>
           </Fade>
-          <Bounce delay={500}>
+          <Bounce delay={500} triggerOnce>
             <h1 className={styles.textXl}>
               완전 <span className={classNames(styles.textXl, styles.cloverText, styles.green)}>럭키위키</span>자나!?
             </h1>
           </Bounce>
-          <JackInTheBox delay={900}>
+          <JackInTheBox delay={900} triggerOnce>
             <p className={classNames(styles.description, styles.textMd)}>
               친구들이 만들어 준 나만의 <span className={classNames(styles.cloverText, styles.green)}>위키</span>
               <br />
