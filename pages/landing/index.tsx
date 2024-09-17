@@ -61,7 +61,7 @@ export default function Landing() {
           </div>
         </section>
         <section className={styles.shareSection}>
-          <Slide className={styles.common} delay={200}>
+          <Slide className={styles.common} delay={200} triggerOnce>
             <div className={styles.shareParagraph}>
               <p className={styles.upperSubText}>Share</p>
               <p className={styles.mainLightText}>
@@ -86,7 +86,7 @@ export default function Landing() {
           </div>
         </section>
         <section className={classNames(styles.viewSection, styles.common)}>
-          <Fade delay={300}>
+          <Fade delay={300} triggerOnce>
             <div className={styles.viewParagraph}>
               <p className={styles.upperSubText}>View</p>
               <p className={styles.mainLightText}>친구들이 달아준</p>
