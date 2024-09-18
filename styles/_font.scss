@@ -1,5 +1,3 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
-
 @font-face {
   font-family: 'HakgyoansimDunggeunmisoTTF-B';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
@@ -23,12 +21,19 @@
 
 html {
   font-family:
+    'Pretendard Variable',
     Pretendard,
-    맑은 고딕,
-    malgun gothic,
-    AppleGothicNeoSD,
-    Apple SD 산돌고딕 Neo,
-    Microsoft NeoGothic,
-    Droid sans,
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    'Noto Sans KR',
+    'Malgun Gothic',
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
     sans-serif;
 }

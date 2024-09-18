@@ -1,10 +1,10 @@
-import WikiCard from '@/components/WikiList/WikiCard';
+import WikiCard from '@/components/wikiList/WikiCard';
 import styles from './WikiList.module.scss';
 import Image from 'next/image';
-import Spinner from '@/components/WikiList/SPinner';
-import TheLatestSearch from '@/components/WikiList/TheLatestSearch';
+import Spinner from '@/components/wikiList/SPinner';
+import RecentSearch from '@/components/wikiList/RecentSearch';
 import { useSearch } from '@/contexts/SearchProvider';
-import { useWikiInfiniteScroll } from '@/hooks/WikiList/useWikiInfiniteScroll';
+import { useWikiInfiniteScroll } from '@/hooks/wikiList/useWikiInfiniteScroll';
 
 export default function WikiList() {
   const { searchTerm } = useSearch();
@@ -17,7 +17,7 @@ export default function WikiList() {
   return (
     <>
       <section className={styles.searchForm}>
-        <TheLatestSearch />
+        <RecentSearch />
         {hasSearchedProfile && (
           <p>
             <span>{searchTerm}</span>님을 총 <span>{profileCards.length}</span>명 찾았습니다.
