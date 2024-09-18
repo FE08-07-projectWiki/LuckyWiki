@@ -56,7 +56,6 @@ export default function WikiEditForm() {
   const getValue = async () => {
     try {
       const res = await getProfile(code as string);
-      console.log(res);
       setContentValue(res);
       setUserId(res?.id);
       setWikiUserName(res?.name);
