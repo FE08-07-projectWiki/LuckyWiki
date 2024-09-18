@@ -19,11 +19,8 @@ export const usePingTimer = (
       const newTime = Number(nowTime);
 
       if (lastPingTime) {
-        const now = dayjs().valueOf();
         const elapsedTime = parseInt(lastPingTime) + 5 * 60 * 1000; // 엔드포인트에서 5분 후
         const remainingTime = elapsedTime - newTime;
-
-        console.log(new Date(now), new Date(elapsedTime), new Date(parseInt(register)), new Date(newTime));
 
         if (remainingTime > 0) {
           timer = setTimeout(() => {
