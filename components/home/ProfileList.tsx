@@ -20,10 +20,10 @@ export default function ProfileList() {
 
   return (
     <section className={styles.cardListContainer}>
-      {profileList?.map((profile, index) => {
+      {profileList?.map(profile => {
         // ProfileCard에서 id는 사용되지 않음
         const { id, ...restProfile } = profile;
-        return <ProfileCard key={id} profile={restProfile} index={index} />;
+        return <ProfileCard key={id} profile={restProfile} />;
       })}
     </section>
   );
