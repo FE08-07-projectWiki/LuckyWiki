@@ -7,7 +7,6 @@ import styles from './ProfileCard.module.scss';
 import Link from 'next/link';
 interface ProfileCardProps {
   profile: Omit<ProfileCardData, 'id'>;
-  index: number;
 }
 
 const formattingDate = (stringDate: Date) => {
