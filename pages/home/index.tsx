@@ -1,26 +1,10 @@
-import ProfileCard from '@/components/home/ProfileCard';
-import { ProfileCardData } from '@/types/types';
 import styles from './Home.module.scss';
 import classNames from 'classnames';
 import { Bounce, Fade, JackInTheBox } from 'react-awesome-reveal';
 import Footer from '@/components/@shared/footer/Footer';
-import { useEffect, useState } from 'react';
-import { getHomeProfileList } from '@/apis/getHomeProfileList';
+import ProfileList from '@/components/home/ProfileList';
 
 export default function Home() {
-  const [profileList, setProfileList] = useState<ProfileCardData[]>([]);
-
-  useEffect(() => {
-    const getProfileList = async () => {
-      const result = await getHomeProfileList();
-      if (result) {
-        setProfileList(result);
-      }
-    };
-
-    getProfileList();
-  }, []);
-
   return (
     <>
       <div className={styles.homeContainer}>
@@ -44,13 +28,7 @@ export default function Home() {
             </p>
           </JackInTheBox>
         </section>
-        <section className={styles.cardListContainer}>
-          {profileList?.map((profile, index) => {
-            // ProfileCard에서 id는 사용되지 않음
-            const { id, ...restProfile } = profile;
-            return <ProfileCard key={id} profile={restProfile} index={index} />;
-          })}
-        </section>
+        <ProfileList />
       </div>
       <Footer />
     </>
