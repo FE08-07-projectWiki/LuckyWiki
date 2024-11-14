@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useValidForm, ValidationConfig } from '@/hooks/useValidForm';
 import ValidInput from '@/components/@shared/input/ValidInput';
 import { useAuth } from '@/contexts/AuthProvider';
@@ -20,7 +20,7 @@ const loginValidationConfig: ValidationConfig = {
 export default function LogInPage() {
   const { logIn } = useAuth();
 
-  const { register, errors, handleSubmit } = useValidForm({ validationConfig: loginValidationConfig });
+  const { register, errors, handleSubmit, setValue } = useValidForm({ validationConfig: loginValidationConfig });
 
   const handleFormSubmit = async (formData: FieldValues) => {
     if (formData.email && formData.password) {
@@ -28,6 +28,12 @@ export default function LogInPage() {
       await logIn({ email, password });
     }
   };
+
+  useEffect(() => {
+    // 테스트 계정 미리 입력을 위한 useEffect
+    setValue('email', process.env.NEXT_PUBLIC_TEST_ACCOUNT_ID);
+    setValue('password', process.env.NEXT_PUBLIC_TEST_ACCOUNT_PW);
+  }, []);
 
   return (
     <main className={'auth-container'}>

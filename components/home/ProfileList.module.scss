@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.cardListContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 30px;
+  grid-gap: 20px;
+  min-height: 100dvh;
+
+  @include tablet {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  & > div {
+    &:nth-child(4n-1),
+    &:nth-child(4n) {
+      flex-direction: row-reverse;
+    }
+
+    @include tablet {
+      &:nth-child(n) {
+        flex-direction: row;
+      }
+      &:nth-child(2n) {
+        flex-direction: row-reverse;
+      }
+    }
+
+    @include mobile {
+      &:nth-child(n) {
+        flex-direction: column;
+      }
+    }
+  }
+}
